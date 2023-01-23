@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>边原满天星</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        ::selection {
+            background-color: #de5336;
+            color: #fff;
+        }
+
+        address,
+        blockquote,
+        body,
+        dd,
+        dl,
+        dt,
+        fieldset,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        html,
+        iframe,
+        legend,
+        li,
+        ol,
+        p,
+        pre,
+        textarea,
+        ul {
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+        }
+
+        a {
+            color: #de5336;
+            text-decoration: none;
+        }
+
+        p {
+            margin-bottom: 1.1em;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        .header {
+            /* position: absolute; */
+            margin: 0 auto;
+            min-width: 1240px;
+            max-width: 1240px;
+            max-height: 76px;
+            /* z-index: 99; */
+        }
+
+        .site-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .logo-box {
+            position: relative;
+            top: 0;
+            display: inline-block;
+            padding: 15px;
+        }
+
+        .logo {
+            width: 310px;
+        }
+
+        .nav-box {
+            display: inline-block;
+            align-items: center;
+            position: absolute;
+            right: 100px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .menu,
+        .menu-item {
+            text-align: center;
+        }
+
+        .menu-item {
+            margin-top: 35px;
+            padding: 0 15px;
+            height: 100%;
+        }
+
+        .menu-item a {
+            display: block;
+            color: #de5336;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .droplist {
+            z-index: 2;
+            display: none;
+            margin-top: 20px;
+            border-top: 2px solid #de5336;
+            background: #fff;
+            box-shadow: 0 0 1px #de5336;
+            text-align: center;
+        }
+
+        .menu-item:hover .droplist {
+            display: block;
+            transition: .3s;
+        }
+
+        .droplist li {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .droplist li a {
+            /* padding: 0px 5px; */
+        }
+
+        .droplist li:hover .droplist2 {
+            display: block;
+        }
+
+        .droplist2 {
+            position: relative;
+            top: -42px;
+            left: 106px;
+            display: none;
+            background: #fff;
+            border-top: 2px solid #de5336;
+            box-shadow: 0 0 1px #de5336;
+        }
+
+        .elevator_item {
+            position: fixed;
+            right: 12px;
+            bottom: 195px;
+            z-index: 11;
+        }
+
+        .float-button {
+            display: block;
+            box-sizing: border-box;
+            width: 36px;
+            height: 40px;
+            margin-top: 10px;
+            padding: 12px 6px;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 12px;
+            box-shadow: 0 1px 2px rgb(0 0 0 / 35%);
+        }
+
+        .section-one {
+            /* margin-top: 90px; */
+            background: url(民族文化教育要从小开始.jpg) no-repeat;
+            background-size: 100%;
+        }
+
+        .section-two {
+            background: url(关于我们.jpg) no-repeat;
+            background-color: #706868;
+            background-size: 100%;
+            color: #fff;
+            opacity: .8;
+        }
+
+        .readmore {
+            display: block;
+            padding: 12px 24px;
+            border-radius: 5%;
+            background-color: #fff;
+        }
+
+        .readmore:hover {
+            background-color: #de5336;
+            color: #fff;
+        }
+
+        .section-three {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            background-size: 100%;
+        }
+
+        .todo {
+            display: flex;
+            background-size: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .todo:hover {
+            background-color: #000;
+            opacity: .6;
+            transition: .2s;
+        }
+
+        .element-container {
+            display: flex;
+            margin: auto;
+            max-width: 1140px;
+            flex-direction: column;
+        }
+
+        .element-container-one-item {
+            display: inline-flex;
+            width: 100%;
+            height: 50px;
+            flex-direction: row-reverse;
+        }
+
+        .element-container-two-item {
+            display: inline-flex;
+            width: 100%;
+            height: 50px;
+            justify-content: center;
+        }
+
+        .element-container-three-item {
+            display: inline-flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .elementor-background-overlay {
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            background-color: #b99;
+            opacity: .4;
+        }
+
+        .elementor-button {
+            padding: 12px 24px;
+            border-radius: 5%;
+            background-color: rgba(136, 133, 123, .08);
+            box-shadow: 0 0 10px 0 rgb(0 0 0/50%);
+            color: #fff;
+            text-shadow: 0 0 7px rgb(0 0 0/30%);
+            font-weight: 500;
+            font-size: 15px;
+            font-family: Roboto, Sans-serif;
+        }
+
+        .elementor-button:hover {
+            background-color: #d7c8c8;
+            transition: .5s;
+        }
+
+        .footer-container {
+            display: grid;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: #eee;
+        }
+
+        .inner {
+            display: grid;
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 1200px;
+            grid-column-gap: 10px;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        .inner-left {
+            display: flex;
+            grid-column: 1/2;
+            grid-row: 1;
+        }
+
+        .inner-right {
+            display: flex;
+            grid-column: 2/3;
+            grid-row: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="header">
+            <div class="site-container">
+                <div class="logo-box">
+                    <a href="http://chinastarrynight.com">
+                        <img src="chinastarrynight.jpg" alt="" class="logo">
+                    </a>
+                </div>
+                <div class="nav-box">
+                    <ul class="menu">
+                        <li class="menu-item"><a href="http://42.192.120.199/">首页&nbsp;&nbsp;</a></li>
+                        <li class="menu-item"><a
+                                href="http://chinastarrynight.com/index.php/%e5%85%b3%e4%ba%8e%e6%88%91%e4%bb%ac/">关于我们</a>
+                        </li>
+                        <li class="menu-item">
+                            <a
+                                href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/">我们正在做的
+                                ∨</a>
+                            <ul class="droplist">
+                                <li>
+                                    <a
+                                        href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e5%ad%a6%e6%9c%af%e7%a0%94%e7%a9%b6/">学术研究&nbsp;&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e6%95%99%e8%82%b2%e4%bc%a0%e6%89%bf/">教育传承
+                                        ∨</a>
+                                    <ul class="droplist2">
+                                        <li><a
+                                                href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e6%95%99%e8%82%b2%e4%bc%a0%e6%89%bf/%e5%85%ac%e7%9b%8a%e6%94%af%e6%95%99/">公益支教&nbsp;&nbsp;</a>
+                                        </li>
+                                        <li><a
+                                                href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e6%95%99%e8%82%b2%e4%bc%a0%e6%89%bf/%e5%ad%a6%e6%a0%a1%e8%af%be%e7%a8%8b/">学校课程&nbsp;&nbsp;</a>
+                                        </li>
+                                        <li><a
+                                                href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e6%95%99%e8%82%b2%e4%bc%a0%e6%89%bf/%e6%96%87%e5%8c%96%e7%a0%94%e5%ad%a6/">文化研学&nbsp;&nbsp;</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a
+                                        href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e7%a4%be%e4%bc%9a%e7%be%8e%e8%82%b2/">社会美育&nbsp;&nbsp;</a>
+                                </li>
+                                <li><a
+                                        href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e6%ad%a3%e5%9c%a8%e5%81%9a%e7%9a%84/%e6%96%87%e5%8c%96%e5%87%ba%e6%b5%b7/">文化出海&nbsp;&nbsp;</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a
+                                href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e7%9a%84%e5%90%8c%e8%a1%8c%e8%80%85/">我们的同行者
+                                ∨
+                            </a>
+                            <ul class="droplist">
+                                <li>
+                                    <a
+                                        href="http://chinastarrynight.com/index.php/%e6%88%91%e4%bb%ac%e7%9a%84%e5%90%8c%e8%a1%8c%e8%80%85/%e9%a1%be%e9%97%ae%e8%80%81%e5%b8%88%e7%9a%84%e6%8c%87%e5%bc%95/">顾问老师的指引</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="elevator_item">
+        <a href="" class="float-button" style="background-color: #de5336;">微博</a>
+        <a href="https://mail.qq.com/" class="float-button" style="background-color: #fff; color: #de5336;">邮箱</a>
+        <a href="" class="float-button" style="background-color: #de5336;">微信</a>
+
+    </div>
+    <section class="section-one">
+        <div class="container">
+            <div class="element-container">
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+                <div class="element-container-one-item"></div>
+
+                <div class="element-container-one-item">
+                    <h1 style="font-size: 40px; color: #eeeeee; font-weight: 600;">民族文化教育要从小开始
+                    </h1>
+                </div>
+                <div class="element-container-one-item">
+                    <h1 style="font-size: 30px; color: #de5336; font-weight: 600;">——中国教育学会名誉会长</h1>
+
+                </div>
+                <div class="element-container-one-item">
+                    <h1 style="font-size: 30px; color: #de5336; font-weight: 600;">顾明远 先生</h1>
+                </div>
+                <div class="element-container-one-item"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-two">
+        <div class="container" style="padding-top: 130px; padding-bottom: 60px;">
+            <div class="element-container" style="font-weight: 600;">
+                <div class="element-container-two-item" style="color: #ffffff;
+                font-family: 'Basic', Sans-serif;
+                font-size: 40px;">
+                    <h1>关于我们</h1>
+                </div>
+                <div class="element-container-two-item" style="color: #de5336; font-size: 20px;">满天星的目标、使命与愿景</div>
+                <div class="element-container-two-item">
+                    <h2 class="elementor-heading-title elementor-size-default"
+                        style="text-align: center;font-size: 25px;font-weight: 500;">
+                        <br>致力于用更有趣的形式来“边原满天星”民族文化创新活化计划<br> 保护、宣传和传承
+                        <br> 我国丰富多彩却日渐消逝
+                        <br> 的多民族文化遗产
+                        <br><br> “边原满天星”以新媒体为载体
+                        <br> 建立起中华民族文化交流社区
+                        <br> 将民族文化通过
+                        <br> 学术研究、教育传承、社会美育和文化出海等形式
+                        <br> 带入公众视野
+                        <br> 使各民族同胞
+                        <br> 以更有趣有效的方式
+                        <br> 体验、传承中华民族文化
+                    </h2>
+                </div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">&nbsp;</div>
+                <div class="element-container-two-item">
+                    <a href="http://chinastarrynight.com/index.php/%e5%85%b3%e4%ba%8e%e6%88%91%e4%bb%ac/"
+                        class="readmore">
+                        <span style="display: flex; flex-direction: row;
+                        justify-content: center;">
+                            <span>阅读更多</span></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-three">
+        <div class="element-container-three-item">
+
+            <div>
+                <h1 style="font-size: 40px; font-weight: 600; color: #000000FC;">四个领域</h1>
+            </div>
+            <div>
+                <h2 style="font-size: 20px; font-weight: 600; color: #de5336;margin-top: 15px;">我们正在致力于的事</h2>
+            </div>
+            <div style="border-top: 5px solid #de5336; margin-top: 15px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        </div>
+        <div class="element-container-three-item"></div>
+        <div class="element-container-three-item"></div>
+
+        <div style="display: flex;justify-content: center;">
+            <div
+                style="max-width: 1140px; min-width: 1140px;min-height: 363px; display: flex; color: #E9ECE8; font-size: 30px;font-weight: 600;">
+                <div class="todo" style="width: 25%; background: url(./学术研究.jpg) repeat-x; background-size: 100% 100%; background-color: #BB9999;
+                opacity: 0.7;display: flex;">
+                    <h1>学术研究</h1>
+                    <h2 style="font-size: 15px;margin: 20px 0;">为民族文化传承项目奠定学术根基</h2>
+                    <a href="http://chinastarrynight.com/index.php/%e5%ad%a6%e6%9c%af%e7%a0%94%e7%a9%b6/" style="display: flex; flex-direction: row;
+                    justify-content: center" class="elementor-button">
+                        <span>查看详情</span>
+                    </a>
+                </div>
+                <div class="todo" style="width: 25%; background: url(./教育传承.jpg) no-repeat;background-size: 100% 100%; background-color: #BB9999;
+                opacity: 0.7;display: flex;">
+                    <h1>教育传承</h1>
+                    <h2 style="font-size: 15px;margin: 20px 0;">助力民族文化的“代际传承”</h2>
+                    <a href="http://chinastarrynight.com/index.php/%e6%95%99%e8%82%b2%e4%bc%a0%e6%89%bf/" style="display: flex; flex-direction: row;
+                    justify-content: center" class="elementor-button">
+                        <span>查看详情</span>
+                    </a>
+                </div>
+                <div class="todo" style="width: 25%; background: url(./社会美育.jpg) no-repeat;background-size: 100% 100%; background-color: #BB9999;
+                opacity: 0.7;display: flex;">
+                    <h1>社会美育</h1>
+                    <h2 style="font-size: 15px;margin: 20px 0;">降低大众了解与学习民族文化的门槛
+                    </h2>
+                    <a href="http://chinastarrynight.com/index.php/%e7%a4%be%e4%bc%9a%e7%be%8e%e8%82%b2/" style="display: flex; flex-direction: row;
+                    justify-content: center" class="elementor-button">
+                        <span>查看详情</span>
+                    </a>
+                </div>
+                <div class="todo" style="width: 25%; background: url(./文化出海.jpg) no-repeat;background-size: 100%; background-color: #BB9999;
+                opacity: 0.7;display: flex;">
+                    <h1>文化出海</h1>
+                    <h2 style="font-size: 15px;margin: 20px 0;">讲好中国故事，让世界更好了解中国
+                    </h2>
+                    <a href="http://chinastarrynight.com/index.php/%e6%96%87%e5%8c%96%e5%87%ba%e6%b5%b7/" style="display: flex; flex-direction: row;
+                    justify-content: center" class="elementor-button">
+                        <span>查看详情</span>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="element-container-three-item"></div>
+        <div class="element-container-three-item"></div>
+        <div class="element-container-three-item"></div>
+    </section>
+    </div>
+    <footer>
+        <div style="background-color: #7a4040;">
+            <div class="footer-container">
+                <div class="inner">
+                    <div class="inner-left">
+                        <div class="logo-box" style="margin-top: 6px;
+                        margin-bottom: 10px;
+                        margin-left: 260px;
+                        margin-right: 1px;">
+                            <span>
+                                <img src="chinastarrynight.jpg" alt="" class="logo">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="inner-right">
+                        <div style="margin-right: 86px; font-size: 8px; color: #808080;">
+                            <p style="text-align: center;">
+                                <span>
+                                    <a
+                                        href="http://chinastarrynight.com/index.php/%e5%85%b3%e4%ba%8e%e6%88%91%e4%bb%ac/">关于我们</a>
+                                    &nbsp; &nbsp;
+                                    <a
+                                        href="http://chinastarrynight.com/index.php/%e7%a0%94%e5%ad%a6%e9%a1%b9%e7%9b%ae%e6%9f%a5%e7%9c%8b/">研学服务</a>
+                                    &nbsp; &nbsp;法律声明及隐私政策
+                                </span>
+                            </p>
+                            <p style="text-align: center;">
+                                <span>地址：宁波市海曙区日新街95号9-3室 联系邮箱：bnumantianxing@163.com</span>
+                            </p>
+                            <p style="text-align: center;">
+                                <span>联系电话：15313923795</span>
+                            </p>
+                            <p style="text-align: center;">
+                                <span>Copyright © 2022 边原满天星&nbsp; &nbsp; &nbsp;<a href="https://beian.miit.gov.cn/"
+                                        target="_blank" rel="external nofollow noopener">浙ICP备2020042863号</a></span>
+                            </p>
+                            <p style="text-align: center;margin-bottom: 0;">
+                                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33020302001044"><img
+                                        class="alignnone size-full wp-image-1418" src="备案图标.png" alt="" width="20"
+                                        height="20">&nbsp; 浙公网安备 33020302001044号</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
